@@ -4,7 +4,7 @@ create table tabela01(codigo integer);
 create table tabela02(conta integer);
 create table tabela03(agencia integer);
 create table tabela04(nome char);
-create table tabela05(valor float);´
+create table tabela05(valor float);
 CREATE TABLE cliente(NOME_CLIENTE varchar(50), CIDADE_CLIENTE varchar(50),ENDERECO_CLIENTE varchar(50));
 CREATE TABLE conta(NUMERO_CONTA integer, NOME_AGENCIA varchar(15),SALDO real);
 CREATE TABLE emprestimo(NUMERO_EMPRESTIMO integer, NOME_AGENCIA varchar(15),VALOR real);
