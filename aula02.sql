@@ -8,7 +8,7 @@ create table tabela05(valor float);
 CREATE TABLE cliente(NOME_CLIENTE varchar(50), CIDADE_CLIENTE varchar(50),ENDERECO_CLIENTE varchar(50));
 CREATE TABLE conta(NUMERO_CONTA integer, NOME_AGENCIA varchar(15),SALDO real);
 CREATE TABLE emprestimo(NUMERO_EMPRESTIMO integer, NOME_AGENCIA varchar(15),VALOR real);
-CREATE TABLE agencia(NOME_AGENCIA varchar(15),CIDADE_AGENCIA varchar(30), DEPOSITOS integer);
+CREATE TABLE agencia(NOME_AGENCIA varchar(15),CIDADE_AGENCIA varchar(30), DEPOSITOS real);
 DROP TABLE TABELA01;
 DROP TABLE TABELA02;
 DROP TABLE TABELA03;
@@ -27,3 +27,5 @@ ALTER TABLE emprestimo RENAME to tbl_emprestimo;
 
 ALTER TABLE agencia RENAME COLUMN cidade_agencia to endereco_agencia;
 ALTER TABLE agencia RENAME to tbl_agencia;
+
+create schema heclair;
