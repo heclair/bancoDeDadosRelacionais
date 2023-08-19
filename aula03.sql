@@ -10,3 +10,7 @@ create table tbl_emprestimo(numero_emprestimo integer PRIMARY KEY, codigo_client
 
 CREATE DOMAIN chk_status text CHECK(VALUE='DISPONIVEL' OR VALUE='ALUGADO');
 create table tbl_livros(cod_livro integer PRIMARY KEY, codigo_titulo integer, status chk_status);
+
+ALTER TABLE tbl_livros add constraint fk_codigo foreign key(codigo_titulo) references tbl_titulo(codigo_titulo);
+ALTER TABLE tbl_emprestimo add constraint fk_codigo foreign key(codigo_cliente) references tbl_cliente(codigo_cliente);
+ALTER TABLE tbl_emprestimo add constraint fk_codigo_livro_emprestimo foreign key(codigo_cliente) references tbl_livros(cod_livro);
