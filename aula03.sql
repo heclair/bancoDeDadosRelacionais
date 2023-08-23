@@ -16,4 +16,4 @@ ALTER TABLE tbl_emprestimo add constraint fk_codigo foreign key(codigo_cliente) 
 ALTER TABLE tbl_emprestimo add constraint fk_codigo_livro_emprestimo foreign key(codigo_cliente) references tbl_livros(cod_livro);
 
 ALTER TABLE tbl_livros
-ALTER COLUMN categoria set default 'disponivel';
+ALTER COLUMN status set default 'disponivel';
