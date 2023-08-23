@@ -14,3 +14,6 @@ create table tbl_livros(cod_livro integer PRIMARY KEY, codigo_titulo integer, st
 ALTER TABLE tbl_livros add constraint fk_codigo foreign key(codigo_titulo) references tbl_titulo(codigo_titulo);
 ALTER TABLE tbl_emprestimo add constraint fk_codigo foreign key(codigo_cliente) references tbl_cliente(codigo_cliente);
 ALTER TABLE tbl_emprestimo add constraint fk_codigo_livro_emprestimo foreign key(codigo_cliente) references tbl_livros(cod_livro);
+
+ALTER TABLE tbl_livros
+ALTER COLUMN categoria set default 'disponivel';
