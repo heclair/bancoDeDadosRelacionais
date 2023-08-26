@@ -62,7 +62,7 @@ CREATE table tbl_cliente2 (codigo integer);
 insert into tbl_cliente2 select codigo_cliente from tbl_cliente;
 
 --Atualizar todos os livro alugados para disponível
-UPDATE tbl_livros SET status='DISPONIVEL';
+UPDATE tbl_livros SET status='DISPONIVEL' where status = 'ALUGADO';
 
 --Delete todas as linhas da tabela tbl_cliente2 onde o código for maior que 3
 DELETE FROM tbl_cliente2 where codigo > 3;
