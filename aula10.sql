@@ -219,3 +219,12 @@ SELECT * FROM v_departemp;
 
 
 --6 criar uma view v_departrouble para listar os nomes dos departamentos que possuem mais projetos do que empregados.
+CREATE OR REPLACE VIEW v_departrouble AS
+SELECT d.nome AS departamento
+FROM tbl_departamentos d
+INNER JOIN tbl_projetos p ON d.cod_departamento = p.cod_departamento
+LEFT JOIN tbl_empregados e ON d.cod_departamento = e.cod_departamento
+GROUP BY d.nome
+HAVING COUNT(DISTINCT p.cod_projeto) > COUNT(DISTINCT e.cod_empregado);
+
+SELECT * FROM v_departrouble;
