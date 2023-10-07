@@ -213,7 +213,7 @@ select * from vw_empregados_salarial;
 --5 criar uma view v_departemp para listar os departamentos e a quantidade de empregados em cada um
 -- listar os departamentos e as quantidades por orderm decrescente de quantidade.
 
-CREATE VIEW v_departemp AS SELECT d.nome AS departamento, COUNT(e.cod_empregado) AS quantidade_empregados FROM tbl_departamentos d LEFT JOIN tbl_empregados e ON d.cod_departamento = e.cod_departamento GROUP BY d.nome, d.cod_departamento ORDER BY quantidade_empregados DESC;
+CREATE OR REPLACE VIEW v_departemp AS SELECT d.nome AS departamento, COUNT(e.cod_empregado) AS quantidade_empregados FROM tbl_departamentos d INNER JOIN tbl_empregados e ON d.cod_departamento = e.cod_departamento GROUP BY d.nome, d.cod_departamento ORDER BY quantidade_empregados DESC;
 
 SELECT * FROM v_departemp;
 
@@ -222,9 +222,9 @@ SELECT * FROM v_departemp;
 CREATE OR REPLACE VIEW v_departrouble AS
 SELECT d.nome AS departamento
 FROM tbl_departamentos d
-INNER JOIN tbl_projetos p ON d.cod_departamento = p.cod_departamento
-LEFT JOIN tbl_empregados e ON d.cod_departamento = e.cod_departamento
+LEFT JOIN tbl_empregados e on d.cod_departamento = e.cod_departamento
+LEFT JOIN tbl_projetos p on d.cod_departamento = p.cod_departamento
 GROUP BY d.nome
-HAVING COUNT(DISTINCT p.cod_projeto) > COUNT(DISTINCT e.cod_empregado);
+HAVING COUNT(p.*) > COUNT(e.*);
 
 SELECT * FROM v_departrouble;
